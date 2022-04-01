@@ -6,7 +6,7 @@
       <p>Author: {{ podaci.authors }}</p>
       <p>Name: {{ podaci.name }}</p>
       <p>Released: {{ podaci.released }}</p>
-      <router-link :to="{ name: 'AboutView', params: { URL : url } }"> VIŠE </router-link>
+      <router-link :to="{ name: 'AboutView', params: { URL : podaci.url } }"> VIŠE </router-link>
     </div>
 
   </div>

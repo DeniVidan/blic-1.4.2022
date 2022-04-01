@@ -1,9 +1,9 @@
 <template>
 
 <div class="moreDetails">
-  <div class="card">
-    <p>Author: {{ podaci.podaci.authors }}</p>
-    <p>Name: {{ podaci.podaci.name }}</p>
+  <div class="card" v-if="podaci">
+    <p>Author: {{ authors }}</p>
+    <p>Name: {{ name }}</p>
     <p>Released: </p>
     <p>isbn: {{ isbn }}</p>
     <p>Broj stranica: </p>
@@ -28,9 +28,12 @@ export default {
 
     };
   },
+  props: {
+
+  },
   async mounted() {
     const get = await axios.get(
-      `${this.URL}`
+      this.URL
       );
     this.podaci = get.data;
     console.log(this.podaci);

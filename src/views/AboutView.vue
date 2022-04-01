@@ -2,13 +2,13 @@
 
 <div class="moreDetails">
   <div class="card" v-if="podaci">
-    <p>Author: {{ authors }}</p>
-    <p>Name: {{ name }}</p>
-    <p>Released: </p>
-    <p>isbn: {{ isbn }}</p>
-    <p>Broj stranica: </p>
-    <p>Broj likova: </p>
-    <p>Broj izdavaca: </p>
+    <p>Author: {{ podaci.authors }}</p>
+    <p>Name: {{ podaci.name }}</p>
+    <p>Released: {{ podaci.released }}</p>
+    <p>isbn: {{ podaci.isbn }}</p>
+    <p>Broj stranica: {{ podaci.numberOfPages }}</p>
+    <p v-if="podaci.characters">Broj likova: {{ podaci.characters.length }} </p>
+    <p>Broj izdavaca: {{ podaci.publisher }}</p>
     <p></p>
   </div>
 </div>
@@ -32,11 +32,12 @@ export default {
 
   },
   async mounted() {
+    /* console.log(this.URL); */
     const get = await axios.get(
       this.URL
       );
     this.podaci = get.data;
-    console.log(this.podaci);
+    
   },
 };
 </script>
